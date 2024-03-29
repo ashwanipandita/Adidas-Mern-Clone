@@ -1,0 +1,152 @@
+/* Login Page CSS */
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+}
+
+/* Global styles */
+body {
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Ensures anchor tags inherit text color */
+}
+
+/* Header styles */
+.hd1 {
+    background-color: black;
+    color: white;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* Increased font size for better readability */
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.hd1 p {
+    letter-spacing: 2px;
+}
+
+/* Navigation styles */
+.categories {
+    display: flex;
+    height: 60px;
+    width: 60%;
+    font-size: 14px;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 50px; /* Adjusted margin-left */
+}
+
+.search-box {
+    display: flex;
+    margin-left: 10px; /* Adjusted margin-left */
+}
+
+.search-bar {
+    height: 40px;
+    width: 180px;
+    border: none;
+    padding-left: 10px;
+    background-color: #efefef;
+    color: black;
+    outline: none; /* Removed !important */
+}
+
+.search-bar::placeholder {
+    color: #000000;
+    font-weight: 200;
+}
+
+.btn {
+    height: 40px;
+    width: 20px;
+    margin-left: -5px;
+    border: none;
+}
+
+.btn i {
+    padding-right: 10px;
+}
+
+.options-3 {
+    height: 40px;
+    width: 200px;
+    gap: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+}
+
+.options-3 i {
+    font-size: 20px;
+}
+
+#mdl-body{
+    display: flex;
+    margin-top: 40px;
+}
+
+#left-mdl{
+    padding-left: 60px;
+}
+
+#right-mdl{
+    padding-left: 20px;
+}
+#rm-icons{
+    display: flex;
+    gap: 20px;
+}
+
+.hw-icons{
+    border: 1px solid black;
+    margin-top:10px ;
+    margin-bottom: 10px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rm-email{
+    width: 280px;
+}
+
+#email-box{
+    width: 280px;
+    height: 40px;
+}
+
+#cont-button{
+    height: 40px;
+    width: 160px;
+    background-color: #000000;
+    color: white;
+    margin-bottom:20px ;
+    margin-top: 20px;
+}
+
+
+
+
+/* Footer styles */
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: #282c32;
+    padding-top: 30px;
+    color: white;
+    font-weight: 100;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
