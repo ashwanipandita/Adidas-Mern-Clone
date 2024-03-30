@@ -163,18 +163,19 @@ const FakeStoreAllProducts = () => {
       </div>
 
       {filterProducts?.length ? (
-        <div style={{ marginTop: "10px", marginBottom: "50px", display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
-          {filterProducts.map((productObj) => (
-            <div key={productObj.id} onClick={() => redirect(productObj.id)} style={{ width: "18%", border: "2px solid black", height: "250px" }}>
-              <img style={{ height: "70%", width: "100%" }} src={productObj.image} alt={productObj.title} />
-              <p>{productObj.title}</p>
-              <p>Price: Rs {productObj.priceInINR.toFixed(2)}</p> {/* Display price in Rs */}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+  <div style={{ marginTop: "10px", marginBottom: "50px", display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
+    {filterProducts.map((productObj, index) => (
+      <div key={productObj.id} onClick={() => redirect(productObj.id)} style={{ width: "calc(18% + 10px)", border: "none", height: index === 2 ? "275px" : "245px", padding: "10px" }}>
+        <img style={{ height: "50%", width: "100%", objectFit: "contain" }} src={productObj.image} alt={productObj.title} />
+        <p style={{ marginBottom: "5px" }}>{productObj.title}</p>
+        <p style={{ marginBottom: "0" }}>Price: Rs {productObj.priceInINR.toFixed(2)}</p> {/* Display price in Rs */}
+      </div>
+    ))}
+  </div>
+) : (
+  <div>Loading...</div>
+)}
+
 
       <div class="footer">
         <div class="footer-1">
