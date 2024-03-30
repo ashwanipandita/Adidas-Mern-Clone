@@ -8,6 +8,11 @@ import Login from './components/Log/Login';
 import Register from './components/Reg/Register';
 import Loginn from './components/Reg/Loginn';
 import AuthContextProvider from './Context/AuthContext';
+import FakeStoreAllProducts from './components/FakeStoreAPI/FakeStoreAllProducts';
+import AllProducts from './components/FakeStoreAPI/AllProducts';
+
+
+
 
 
 function App() {
@@ -21,6 +26,10 @@ function App() {
         <Route path='/loginn' element={<Loginn/>} />
         <Route path='/AuthContextProvider' element={<AuthContextProvider/>} />
         <Route path='/Homepage' element={<Homepage />} /> {/* Add this route */}
+        <Route path="/AllProducts" element={<AllProducts awdiz={AllProducts} />}/>
+        <Route path="/FakeStoreAllProducts" element={<FakeStoreAllProducts/>} />
+
+
     {/* <Route path='/all-products' element={<MultipleProduct/>} />
         <Route path='/single-product' element={<SingleProduct/>} />
         <Route path='/cart' element={<Cart/>} />
