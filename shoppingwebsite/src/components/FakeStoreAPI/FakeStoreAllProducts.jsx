@@ -15,8 +15,14 @@ const FakeStoreAllProducts = () => {
     try {
       const response = await axios.get("https://fakestoreapi.com/products");
       if (response?.data.length) {
-        setAllProducts(response.data);
-        setFilterProducts(response.data);
+        // Map through the products to add pricing in Rs
+        const productsWithPricing = response.data.map((product) => {
+          // Assuming the API provides price in USD, convert it to INR
+          const priceInINR = product.price * 74.5; // Convert USD to INR (assuming 1 USD = 74.5 INR)
+          return { ...product, priceInINR };
+        });
+        setAllProducts(productsWithPricing);
+        setFilterProducts(productsWithPricing);
       }
     } catch (error) {
       console.log(error);
@@ -119,71 +125,66 @@ const FakeStoreAllProducts = () => {
       </div>
 
       <div class="img-2">
-                    <img class="img2" src={adidasImage2} alt="" />
-                
-                    <div class="img2-text">
-                        <div class="img2-text1 ">
-                            <p>YOU GOT THIS </p>
-                        </div>
-                        <div class="img2-text2">
-                            <p> When you play sport on your own terms,<br /> pressure doesn't stand a chance.
-                            </p> <br /> <br />
-                            <button class="img2-btn">
-                                EXPLORE MORE <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <img class="img2" src={adidasImage2} alt="" />
+        <div class="img2-text">
+          <div class="img2-text1 ">
+            <p>YOU GOT THIS</p>
+          </div>
+          <div class="img2-text2">
+            <p> When you play sport on your own terms,<br /> pressure doesn't stand a chance.
+            </p> <br /> <br />
+            <button class="img2-btn">
+              EXPLORE MORE <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-                <div class="img-3">
-                    <img src={adidasImage3} alt="" />
-                    <div class="img3-text">
-                        <div class="img3-text1">
-                            <p>EXTRA 20% OFF*</p>
-                        </div>
-                        <div class="img3-text2">
-                            <p> Buy 2 or More Products</p>
-                            <br />
-                            <button class="img3-btn ">
-                                SHOP MEN <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                            <button class="img3-btn">
-                                SHOP WOMEN <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                            <button class="img3-btn">
-                                SHOP KIDS <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
+      <div class="img-3">
+        <img src={adidasImage3} alt="" />
+        <div class="img3-text">
+          <div class="img3-text1">
+            <p>EXTRA 20% OFF*</p>
+          </div>
+          <div class="img3-text2">
+            <p> Buy 2 or More Products</p>
+            <br />
+            <button class="img3-btn ">
+              SHOP MEN <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="img3-btn">
+              SHOP WOMEN <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="img3-btn">
+              SHOP KIDS <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
       {filterProducts?.length ? (
-        <div style={{ marginTop: "10px",marginBottom:"50px", display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
+        <div style={{ marginTop: "10px", marginBottom: "50px", display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
           {filterProducts.map((productObj) => (
             <div key={productObj.id} onClick={() => redirect(productObj.id)} style={{ width: "18%", border: "2px solid black", height: "250px" }}>
               <img style={{ height: "70%", width: "100%" }} src={productObj.image} alt={productObj.title} />
               <p>{productObj.title}</p>
+              <p>Price: Rs {productObj.priceInINR.toFixed(2)}</p> {/* Display price in Rs */}
             </div>
           ))}
         </div>
       ) : (
         <div>Loading...</div>
       )}
+
       <div class="footer">
-                <div class="footer-1">
-                    <p>Privacy Policy | Terms and Conditions | Cookies</p>
-                </div>
-                <div class="footer-2">
-                    <p>©2021 adidas India Marketing Pvt. Ltd</p>
-                </div>
-            </div>
+        <div class="footer-1">
+          <p>Privacy Policy | Terms and Conditions | Cookies</p>
+        </div>
+        <div class="footer-2">
+          <p>©2021 adidas India Marketing Pvt. Ltd</p>
+        </div>
+      </div>
     </div>
-
-
-
-
   );
 };
 
