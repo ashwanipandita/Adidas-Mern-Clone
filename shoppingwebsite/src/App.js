@@ -22,14 +22,14 @@ function App() {
     <div className="App">
       <AuthContextProvider>
      <Routes>
-        <Route path='/' element={<Homepage/>} />
+        <Route path='/Homepage' element={<Homepage/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/Register' element={<Register/>} />
         <Route path='/loginn' element={<Loginn/>} />
         <Route path='/AuthContextProvider' element={<AuthContextProvider/>} />
         <Route path='/Homepage' element={<Homepage />} /> {/* Add this route */}
         <Route path="/AllProducts" element={<AllProducts awdiz={AllProducts} />}/>
-        <Route path="/FakeStoreAllProducts" element={<FakeStoreAllProducts/>} />
+        <Route path="/" element={<FakeStoreAllProducts/>} />
         <Route path="/fake-single-product/:id" element={<FakeStoreSingleProducts />} />
 
         <Route path="/Render" element={<Render />} />
